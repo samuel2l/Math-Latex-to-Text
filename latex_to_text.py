@@ -140,7 +140,6 @@ for sub in present_subs:
     if sub.startswith("_{"):
         copy=copy.replace(sub,f" subscript {sub[2:-1]} ")
     else:
-        # in case its just "_" with no curly opening bracket
         copy=copy.replace(sub,f" subscript {sub[1:]} ")
 
 present_super=re.findall(superscripts,latex_code)
@@ -148,8 +147,6 @@ print('present super',present_super)
 for super in present_super:
     if super.startswith("^{"):
         copy=copy.replace(super,f" superscript {super[2:-1]} ")
-        #instead of saying x superscript 2 you can have another dict that will convert 2 to squard and 3 to cube
-        #but chale it no need ryd
     else:
         copy=copy.replace(super,f" superscript {super[1:]} ")
 
